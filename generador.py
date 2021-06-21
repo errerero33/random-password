@@ -11,6 +11,5 @@ def generar_password(n):
     print(s)
     m = len(caracteres)
     p = (1/len(caracteres))**n
-    print('La probabilidad de que adivinen tu contraseña es {:.2e}'.format(p))
     
 wb.open('https://twitch.tv/golduck06')
