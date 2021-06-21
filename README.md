@@ -1,2 +1,1 @@
-# random-password
-Generador de contraseñas
+generador echo por  https://twitch.tv/golduck06
