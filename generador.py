@@ -1,4 +1,4 @@
-import subprocessfrom VALID import ns, OKI, opt
+import subprocessfrom  import OKI, opt
 import random
 import string 
 import webbrowser as wb
