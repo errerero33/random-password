@@ -1,24 +1,15 @@
-import subprocessfrom  import OKI, opt
 import random
-import string 
 import webbrowser as wb
 
-while True:
-    print('****GENERADOR DE CONTRASEÑAS****')
-    minus=OKI(input('Indique número mínimo de minusculas:'))
-    mayus=OKI(input('Indique número mínimo de mayusculas:'))
-    numeros=OKI(input('Indique número mínimo de numeros:'))
-    longitud=OKI(input('Indique longitud de la contraseña:'))
-    caract=string.ascii_letters+string.digits
-    while True 
-    contraseña=('').join(random.choice(caract)for i in range(longitud))
-    print(contraseña)
-    if(sum(c.islower() for c in contraseña)>=minus
-       and sum(c.isupper() for c in contraseña)>=mayus
-       and sum(c.isupper() for c in contraseña)>=numeros):
-       break
-    print('')
-    print('su contraseña: ',contraseña)
-    print('recuerda seguirme')
-
+def generar_password(n):
+    s = ''
+    caracteres = list(string,printable)
+    caracteres = caracteres[:-6]
+    for i in range(n):
+        s += random.choice(caracteres)
+    print(s)
+    m = len(caracteres)
+    p = (1/len(caracteres))**n
+    print('La probabilidad de que adivinen tu contraseña es {:.2e}'.format(p))
+    
 wb.open('https://twitch.tv/golduck06')
