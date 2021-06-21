@@ -1,39 +1,63 @@
+import random
+import string
+import sys
+import subprocess
 import webbrowser as wb
 
-print('si te sientes incomomdo respondiendo alguna pregunta pon algo random XD,lo usara igual')
-Message1 = """Recuerda seguir a golduck06 en twitch \n
-Antes de proceder, llene el siguiente formulario por favor(para hacer tu contraseña)."""
+wb.open('https://paypal.me/golduck06')
+
+def ns(r):
+    while r!="n" and r!="s":
+        r=input("Escriba solo \'n\' o \'s\' según su opción: ")
+    return r
+ 
+def OKI(n):
+    try:
+        n=int(n)
+    except:
+        n=OKI(input("Caracter no valido: "))
+    return n
+ 
+def opt(o,l):
+    while o not in l:
+        o=input("Escriba solo una de las opciónes posibles: ")
+    return o
+ 
+ops=sys.platform
+ 
+while True:
+ 
+    print("*******GENERADOR DE CONTRASEÑAS*******")
+    minus=OKI(input("Indique número mínimo de minusculas: "))
+    mayus=OKI(input("Indique número mínimo de mayusculas: "))
+    numeros=OKI(input("Indique número mínimo de caracteres numéricos: "))
+    longitud=OKI(input("Indique longitud de la contraseña: "))
+    suma=minus+mayus+numeros #SUMA DE MINIMOS
+    while longitud<suma: #COMPROBACION ADECUACIÓN DE LA "longitud".
+        longitud=OKI(input("Longitud inadecuada: "))
+    caract=string.ascii_letters+string.digits
+    while True:
+        contra=("").join(random.choice(caract)for i in range(longitud))
+        if(sum(c.islower() for c in contra)>=minus
+            and sum(c.isupper() for c in contra)>=mayus
+            and sum(c.isdigit() for c in contra)>=numeros):
+            break
+    print("")
+    print("SU CONTRASEÑA: ",contra)
+    print("")
+ 
+ 
+ 
+    conti=ns(input("¿Desea continuar?(s/n): "))
+    if conti==("n"):
+        break
+    if ops=="win32" or ops=="linux2":
+        if ops=="win32":
+            import subprocess
+            subprocess.call(["cmd.exe","/C","cls"])
+        else:
+            os.system("clear")
+    else:
+        continue
 
 
-Message2 = '''Muchas gracias por tomarse el tiempo de llenar el formulario. 
-De acuerdo a la informacion que nos acaba de proveer, procedemos a 
-mostrarle su password para sus futuras operaciones.'''
-
-
-Message3 = "Su password ha sido enviado a su escritorio en un documento de texto."
-
-print (Message1)
-
-
-name = input("Por favor introduzca su nombre: ")
-country = input ('Por favor introduzca su pais de procedencia: ')
-birthday = input ('Por favor introduzca su fecha de nacimiento: ')
-city = input ('Por favor introduzca el estado donde vive: ')
-phone = input ("Por favor introduzca su numero de telefono: ")
-special = input('Por favor introduzca al menos tres caracteres especiales: ')
-
-
-password = name[3]+country[4]+birthday[7]+city[2]+phone[1]+special[1]
-
-
-print ('\n' + Message2 +" "+ password +'\n')
-
-
-print (Message3 + '\n')
-
-wb.open('https://twitch.tv/golduck06')
-
-
-file = open ("/home/Desktop/password.txt","w" )
-file.write (password)
-file.close()
