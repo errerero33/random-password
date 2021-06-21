@@ -1,7 +1,7 @@
 Uso:
 git clone https://github.com/errerero33/random-password 
 
-cd random-
+cd random-password
 
 python generador.py
 
