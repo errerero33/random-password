@@ -1,4 +1,5 @@
 import random
+import string
 import webbrowser as wb
 
 def generar_password(n):
